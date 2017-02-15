@@ -1,7 +1,9 @@
 # BigPanda DevOps Exercise
 #### NITSAN
-gify-panda written in python running on 8070
-counter-panda written in nodejs running on 8090
+gify-panda written in python running on 8070.
+
+counter-panda written in nodejs running on 8090.
+
 I added deploy.sh script
 
 #### INTRO
