@@ -37,6 +37,6 @@ if [ -z $1 ];then ShowUsage && exit 1 ;fi
 parseArgs $*
 echo Deploying $service ...
 for s in "$service" ; do
-  /usr/bin/ansible-playbook ./deploy.yml --extra-var=$s
+  /usr/bin/ansible-playbook ./deploy.yml --extra-var="$s"
   check_status $? "while Deploying $s"
 done
