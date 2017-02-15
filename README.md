@@ -1,4 +1,9 @@
 # BigPanda DevOps Exercise
+#### NITSAN
+gify-panda written in python running on 8070
+counter-panda written in nodejs running on 8090
+I added deploy.sh script
+
 #### INTRO
 Good morning, Mr. Panda. Your mission, should you choose to accept it, involves the development and deployment of two nanoservices.
 Please read the following instructions before starting to implement your mission, you don't want to miss any important instruction, especially those in [General Guidelines](#general-guidelines)
@@ -27,7 +32,7 @@ The second service shall be called counter-panda, and should just maintain a cou
 A sample NodeJS service named bamboo-app already exists  [here](roles/bamboo/files/bamboo-app)
 
 ###### Deployment
-Create an ansible role for each of the services. The role should install the service, **run it** and make sure it's ready to be used in **production** (see [General Guidelines](#general-guidelines)). 
+Create an ansible role for each of the services. The role should install the service, **run it** and make sure it's ready to be used in **production** (see [General Guidelines](#general-guidelines)).
 A sample role for bamboo-app already exists for your convenience.  (Please note: samples are not full, and do not contain all relevant the details, you're expected to improve them, and add missing tasks).
 We understand there might be a short service downtime when re-deploying a service, that’s fine.
 
@@ -48,7 +53,7 @@ The Pull-Request should contain a short description of the roles you created, an
 
 #### General Guidelines
 Your code should be as simple as possible, yet well documented and robust.  
-Spend some time on designing your solution. 
+Spend some time on designing your solution.
 Think about operational use cases from the real world. Few examples:
 
 1. Can you run the playbook multiple times without any problem?
