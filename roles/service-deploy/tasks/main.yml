@@ -1,18 +1,28 @@
 ---
 - name: copy "{{ service }}" app
-  copy: src="{{ service }}" dest=/tmp/ owner=root group=root mode=0755
+  copy:
+    - src: "{{ service }}"
+    - dest: /tmp/
+    - owner: root
+    - group: root
+    - mode: 0755
 
 - debug:
-    msg: " service is {{ service }}"
+    msg: "Deploying {{ service }}"
 
 - name: npm install
   npm: path="/tmp/{{ service }}"
-  when: service == "counter-panda"
+  when: service != "gify-panda"
 
 - name: copy "{{ service }}" startup
-  copy: src="{{ service }}-startup" dest="/etc/init/{{ service }}.conf" owner=root group=root mode=0755
+  copy:
+    - src: "{{ service }}-startup"
+    - dest: "/etc/init/{{ service }}.conf"
+    - owner: root
+    - group: root
+    - mode: 0755
 
-- name: restart service
+- name: restart "{{ service }}"
   service:
     - name: "{{ service }}"
     - state: restarted
