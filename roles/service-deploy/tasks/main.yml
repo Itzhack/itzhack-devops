@@ -1,6 +1,7 @@
 ---
 - name: copy "{{ service }}" app
   synchronize: src="{{ service }}" dest=/tmp/ owner=root group=root mode=0755
+  notify: restart "{{ service }}"
 
 - debug:
     msg: " service is {{ service }}"
@@ -11,6 +12,3 @@
 
 - name: copy "{{ service }}" startup
   copy: src="{{ service }}-startup" dest="/etc/init/{{ service }}.conf" owner=root group=root mode=0755
-  
-- name: restart service
-  command: 'stop "{{ service }}" ; start "{{ service }}" '
