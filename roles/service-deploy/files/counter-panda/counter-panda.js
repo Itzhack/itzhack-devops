@@ -15,7 +15,7 @@ function handleRequest(request, response){
 
 dispatcher.onGet("/", function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end(global.postCounter + 'POST requests so far');
+    res.end(global.postCounter + ' POST requests so far');
 });
 
 dispatcher.onPost("/", function(req, res) {

@@ -4,7 +4,7 @@ import os
 import SimpleHTTPServer
 import SocketServer
 
-os.chdir('/home/dodo/resources')
+os.chdir('/tmp/gify-panda/resources')
 PORT = 8070
 
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler

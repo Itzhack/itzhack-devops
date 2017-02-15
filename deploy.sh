@@ -16,7 +16,6 @@ End_of_usage_msg
 function parseArgs () {
 	while (( "$#" ))
 	do
-		echo $1
 		case "$1" in
 		-s*)	service=$2
 				break;;
@@ -36,7 +35,7 @@ function check_status () {
 if [ -z $1 ];then ShowUsage && exit 1 ;fi
 parseArgs $*
 echo Deploying $service ...
-for s in "$service" ; do
-  /usr/bin/ansible-playbook ./deploy.yml --extra-var="$s" -i dev/hosts
+for s in $service ; do
+  /usr/bin/ansible-playbook ./deploy.yml --extra-var="service=$s" -i dev/hosts
   check_status $? "while Deploying $s"
 done

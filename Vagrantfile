@@ -9,12 +9,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.memory = 1024
   end
 
-    ### Change network card to PCnet-FAST III
-    # For NAT adapter
-#    v.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
-    # For host-only adapter
-#    v.customize ["modifyvm", :id, "--nictype2", "Am79C973"]
-#  end  
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "base.yml"
     ansible.inventory_path = "dev"
@@ -30,6 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a base machine 
   config.vm.define "base" do |base|
+      base.vm.network :forwarded_port, host: 8070, guest: 8070
       base.vm.network :forwarded_port, host: 8080, guest: 8080
+      base.vm.network :forwarded_port, host: 8090, guest: 8090
   end
 end

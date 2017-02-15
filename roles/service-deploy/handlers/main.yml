@@ -1,4 +1,4 @@
 ---
 # handlers file 
-- name: restart {{ service }}
+- name: restart srv
   service: "name={{ service }} state=restarted"

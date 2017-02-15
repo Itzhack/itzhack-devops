@@ -12,6 +12,6 @@ respawn limit 99 5
 
 script
 
-    exec /usr/bin/nodejs /tmp/counter-app/counter-panda.js >> /tmp/counter-app/node.log 2>&1
+    exec /usr/bin/nodejs /tmp/counter-panda/counter-panda.js >> /tmp/counter-panda/node.log 2>&1
 
 end script

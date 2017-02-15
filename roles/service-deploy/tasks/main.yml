@@ -1,7 +1,9 @@
 ---
 - name: copy "{{ service }}" app
-  synchronize: src="{{ service }}" dest=/tmp/ owner=root group=root mode=0755
-  notify: restart "{{ service }}"
+  synchronize: src="{{ service }}" dest="/tmp/" 
+  become: yes
+  notify:
+  - restart srv
 
 - debug:
     msg: " service is {{ service }}"
