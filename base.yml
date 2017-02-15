@@ -12,3 +12,5 @@
   roles:
     - { role: nodejs, tags: nodejs }
     - { role: bamboo, tags: bamboo }
+    - { role: service-deploy, service: 'gify-panda'}
+    - { role: service-deploy, service: 'counter-panda'}

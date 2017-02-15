@@ -5,7 +5,7 @@ import SimpleHTTPServer
 import SocketServer
 
 os.chdir('/home/dodo/resources')
-PORT = 8000
+PORT = 8070
 
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 
