@@ -8,7 +8,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
   end
-  
+
+    ### Change network card to PCnet-FAST III
+    # For NAT adapter
+#    v.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
+    # For host-only adapter
+#    v.customize ["modifyvm", :id, "--nictype2", "Am79C973"]
+#  end  
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "base.yml"
     ansible.inventory_path = "dev"
