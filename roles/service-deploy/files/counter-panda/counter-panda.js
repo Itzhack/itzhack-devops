@@ -2,6 +2,7 @@ var http = require('http');
 var config = require('./config.json');
 var HttpDispatcher = require('httpdispatcher');
 var dispatcher = new HttpDispatcher();
+global.postCounter = 0 ;
 
 function handleRequest(request, response){
     try {
@@ -14,7 +15,13 @@ function handleRequest(request, response){
 
 dispatcher.onGet("/", function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('I <3 Bamboo');
+    res.end(global.postCounter + 'POST requests so far');
+});
+
+dispatcher.onPost("/", function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    global.postCounter++ ;
+    res.end('OK');
 });
 
 dispatcher.onError(function(req, res) {
